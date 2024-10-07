@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="login-register">
+<head>
+    <partial name="_LayoutMetaPartial" />
+    <title>@ViewData["Title"] - </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/theme/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- page css -->
+    <link href="~/theme/admin/main/css/pages/login-register-lock.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/theme/admin/main/css/master-stylesheet.css" rel="stylesheet">
+
+    <!-- You can change the theme colors from here -->
+    @await RenderSectionAsync("Styles", false)
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+
+<body class="card-no-border bg-transparent">
+
+    <partial name="_PreLoaderPartial" />
+
+    @RenderBody()
+
+    <script src="~/theme/admin/assets/vendors/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/theme/admin/assets/vendors/bootstrap/js/popper.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/theme/admin/main/js/authentication.js"></script>
+    @await RenderSectionAsync("Scripts", false)
+</body>
+
+</html>

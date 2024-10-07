@@ -1,0 +1,19 @@
+﻿@{
+    var ogImageUrl = string.IsNullOrWhiteSpace(ViewBag.OgImageUrl) ? "/img/logo.png" : ViewBag.OgImageUrl;
+
+    var ogDescription = string.IsNullOrWhiteSpace(ViewBag.Description)
+        ? "You can buy fresh foods form here."
+        : ViewBag.Description;
+}
+
+<link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.ico">
+<meta charset="utf-8" content="text/html" http-equiv="content-type">
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<meta property="og:site_name" content="Ozzy Mart" />
+<meta name="description" content="">
+<meta name="author" content="Ozzy Mart">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta property="og:title" content="@ViewBag.Title" />
+<meta property="og:url" content="@ViewBag.Url" />
+<meta property="og:image" content="@ogImageUrl" />
+<meta name="description" property="og:description" content="@ogDescription" />

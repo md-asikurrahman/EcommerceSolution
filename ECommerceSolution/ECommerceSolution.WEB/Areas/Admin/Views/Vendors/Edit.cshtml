@@ -1,0 +1,123 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.VendorModels
+@model VendorModel
+
+@{
+    ViewData["Title"] = "Edit Vendor";
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $('.select2').select2();
+    </script>
+}
+
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Edit Vendors</h3>
+    </div>
+    <div class="col-6 text-right font-12">
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        &gt; <a asp-area="Admin" asp-controller="Vendors" asp-action="Index">Vendors</a> &gt; Edit Vendors
+    </div>
+    <div class="">
+        <button class="right-side-toggle waves-effect waves-light bg-primary btn btn-circle btn-sm pull-right ml-10">
+            <i class="ti-settings text-white"></i>
+        </button>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+
+<form asp-area="Admin" asp-controller="Vendors" asp-action="Edit" method="post" asp-antiforgery="true" class="form-horizontal" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4> General </h4>
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div>
+                                <input type="hidden" asp-for="Id" />
+                                <input type="hidden" asp-for="SerialNumber" />
+                                <input type="hidden" asp-for="CreatedAt" />
+                                <input type="hidden" asp-for="CreatedBy" />
+                                <input type="hidden" asp-for="UpdatedAt" />
+                                <input type="hidden" asp-for="UpdatedBy" />
+
+                                <div class="form-group">
+                                    <label class="control-label font-16 mb-1">Vendor Name</label>
+                                    <div>
+                                        <input asp-for="VendorName" class="form-control font-14" placeholder="Name">
+                                    </div>
+                                    <span asp-validation-for="VendorName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="mb-2">
+                                <div class="form-group">
+                                    <label class="control-label font-16 mb-2">Vendor Type</label>
+                                    <div class="row align-items-center">
+                                        <div class="col-md-10">
+                                            <select class="custom-select font-14 select2" asp-for="VendorTypeId" asp-items="@Model.VendorTypes">
+                                                <option value="">Select vendor type</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 ">
+                                            <a asp-action="Create" asp-controller="VendorType" target="_blank" class="btn btn-outline-primary btn-sm w-100">
+                                                <i class="fa fa-plus"></i>  Add
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <span asp-validation-for="VendorTypeId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                <label class="control-label font-16 mb-1">Description</label>
+                                <div>
+                                    <textarea asp-for="Description" class="form-control textarea-lg"></textarea>
+                                </div>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label font-16 mb-1">Mobile No.</label>
+                                <div>
+                                    <input asp-for="MobileNumber" class="form-control font-14" placeholder="Mobile Number">
+                                </div>
+                                <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 mb-20">
+                            <label class="switch">
+                                <input asp-for="IsActive" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="font-14">Status Available</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-right">
+                            <div class="5">
+                                <button type="submit" class="btn btn-rounded waves-effect waves-light bg-green font-14 text-white">Update</button>
+                                <a asp-area="Admin" asp-controller="Vendors" asp-action="Index" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->

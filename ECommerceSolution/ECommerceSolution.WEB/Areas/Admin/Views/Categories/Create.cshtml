@@ -1,0 +1,121 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.CategoryModels
+@model CreateCategoryModel
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Add Product Category</h3>
+    </div>
+    <div class="col-6 text-right font-12">
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+        &gt; <a asp-area="Admin" asp-controller="Categories" asp-action="Index">Categories</a> &gt; Add Categories
+    </div>
+    <div class="">
+        <button class="right-side-toggle waves-effect waves-light bg-primary btn btn-circle btn-sm pull-right ml-10">
+            <i class="ti-settings text-white"></i>
+        </button>
+    </div>
+</div>
+
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+
+<form asp-area="Admin" asp-controller="Categories" asp-action="Create" method="post" asp-antiforgery="true" class="form-horizontal" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div class="clearfix"></div>
+                            <div class="mb-2">
+                                <div class="form-group">
+                                    <label class="control-label font-16 mb-2">Parent Category</label>
+                                    <div>
+                                        <select asp-for="ParentCategoryId" id="ParentCategory" class="custom-select font-14 select2" data-style="btn-default btn-outline" asp-items="@Model.ParentCategoryList">
+                                            <option value="0">Select Parent Category</option>
+                                        </select>
+                                    </div>
+                                    <span asp-validation-for="ParentCategoryId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group">
+                                    <label class="control-label font-16 mb-1">Category Name</label>
+                                    <div>
+                                        <input asp-for="CategoryName" class="form-control font-14" placeholder="Name">
+                                    </div>
+                                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                                </div>
+                            </div>
+                          
+                            <div class="clearfix"></div>
+                            <div class="mb-2">
+                                <div class="form-group">
+                                    <label class="control-label font-16 mb-1">Description</label>
+                                    <div>
+                                        <textarea asp-for="CategoryDescription" class="form-control textarea-lg"></textarea>
+                                    </div>
+                                    <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="font-18 text-blue text-uppercase mb-20">Upload Category Icon</h4>
+                    <div class="upload-photo">
+                        <input asp-for="ImageUrl" type="file" id="input-file-now-custom-1" class="dropify" data-default-file="" />
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 mb-20">
+                            <label class="switch">
+                                <input asp-for="IsActive" type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                            <span class="font-14">Status Available</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 text-right">
+                            <div class="5">
+                                <button type="submit" class="btn btn-rounded waves-effect waves-light bg-green font-14 text-white">Save</button>
+                                <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- ============================================================== -->
+<!-- End PAge Content -->
+<!-- ============================================================== -->
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $('.select2').select2();
+    </script>
+}

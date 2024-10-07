@@ -1,0 +1,87 @@
+﻿@model ECommerceSolution.WEB.ViewModels.LogInViewModel
+
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_AccountLayout";
+}
+
+@section Styles
+{
+    <link href="~/theme/admin/main/css/colors/blue-dark.css" id="theme" rel="stylesheet">
+}
+
+
+<section id="wrapper">
+    <div>
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" asp-area="Admin" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl" asp-antiforgery="true" method="post">
+                    <h3 class="box-title mb-20 text-center text-blue">Sign In</h3>
+                    <div class="form-group  mb-20">
+                        <div class="col-xs-12">
+                            <input asp-for="UserName" class="form-control" type="text" required placeholder="Username">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group mb-30">
+                        <div class="col-xs-12" style="position:relative">
+                            <input asp-for="Password" id="myInput" class="form-control" type="password" required placeholder="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <span class="eye" onclick="myFunction()">
+                                <i id="hide1" class="fa fa-eye"></i>
+                                <i id="hide2" class="fa fa-eye-slash"></i>
+                            </span>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="checkbox checkbox-info pull-left pt-0">
+                                <input id="checkbox-signup" type="checkbox" class="filled-in chk-col-light-blue">
+                                <label for="checkbox-signup"> Remember me </label>
+                            </div>
+                            <a asp-area="Admin" asp-controller="Account" asp-action="ForgotPassword" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock mr-5"></i> Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12">
+                            <button class="btn-block btn-rounded2" type="submit">Log In</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-10 text-center">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $('body').addClass("card-no-border");
+        function myFunction() {
+            var x = document.getElementById("myInput")
+            var y = document.getElementById("hide1")
+            var z = document.getElementById("hide2")
+
+            if (x.type === 'password') {
+                x.type = "text";
+                y.style.display = "block";
+                z.style.display = "none";
+            } else {
+                x.type = "password";
+                y.style.display = "none";
+                z.style.display = "block";
+            }
+
+        }
+
+
+    </script>
+}
+

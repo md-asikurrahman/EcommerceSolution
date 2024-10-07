@@ -1,0 +1,15 @@
+﻿@{
+    var isAuthorize = "Context.IsAuthorizeUser()";
+}
+@if (isAuthorize == "Context.IsAuthorizeUser()")
+{
+    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Login" asp-route-returnUrl="@ViewBag.ReturnUrl">Login</a>
+    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@ViewBag.ReturnUrl">Register</a>
+    <a class="dropdown-item" asp-action="ForgetPassword" asp-controller="Account">Forgot Password</a>
+}
+else
+{
+    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Index">My Account</a>
+    <a class="dropdown-item" asp-action="ForgetPassword" asp-controller="Account">Forgot Password</a>
+    <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+}

@@ -1,0 +1,98 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.CategoryModels
+@model IEnumerable<CategoryModel>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+@section Scripts
+{
+    <script>
+        $('#product-category-table').DataTable();
+    </script>
+}
+
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h3>Product Categories</h3>
+    </div>
+    <div class="col-md-6 text-right font-12">
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a> &gt; Categories
+    </div>
+    <div class="">
+        <button class="right-side-toggle waves-effect waves-light bg-primary btn btn-circle btn-sm pull-right ml-10">
+            <i class="ti-settings text-white"></i>
+        </button>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="card">
+    <div class="card-header bg-light clearfix">
+        <a asp-area="Admin" asp-controller="Categories" asp-action="Create" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> Add</a>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="product-category-table" class="display nowrap table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Sl.</th>
+                                <th>Icon</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                int counter = 0;
+                                foreach (var category in @Model)
+                                {
+                                    <tr>
+                                        <td>@(++counter)</td>
+                                        <td>
+                                            <img src="/Images/CategoryImage/@category.ImageUrl"
+                                                 alt="@category.CategoryName"
+                                                 class="profile-img2 img-circle" />
+                                        </td>
+                                        <td>@category.CategoryName</td>
+                                        
+                                        <td>
+                                            <span class="btn waves-effect waves-light btn-rounded @category.StatusClass">
+                                                @category.Status
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a asp-area="Admin" asp-controller="Categories" asp-action="Edit" asp-route-id="@category.Id" class="pencil-icon">
+                                                <i class="fa fa-pencil" aria-hidden="true"> </i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="Categories" asp-action="Details" asp-route-id="@category.Id" class="pencil-icon">
+                                                <i class="fa fa-info"></i>
+                                            </a>
+                                            <a asp-area="Admin" asp-controller="Categories" asp-action="Delete" asp-route-id="@category.Id" class="delete-icon">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- End Container fluid  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

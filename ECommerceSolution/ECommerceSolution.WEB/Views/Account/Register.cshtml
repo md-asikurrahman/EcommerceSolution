@@ -1,0 +1,226 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AccountLayout";
+    // var cartItems = Model.UserInfo.CartItems ?? new List<ProductCartItemViewModel>();
+}
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+    @* <script>
+        $(document).ready(function () {
+            const data = @Html.Raw(cartItems.ToJson());
+            cartItems = cartItems.concat(data);
+            shoppingCartBoxId.empty().append(prepare());
+
+            $.get('/account/countries', function (response) {
+                response.forEach(x => {
+                    $('#CountryId').append(`<option value="${x.value}">${x.text}</option>`);
+                });
+            });
+
+            $('#CountryId').change(function (e) {
+                e.preventDefault();
+                $('#DivisionId').find('option:not(:first)').remove();
+                $('#DistrictId').find('option:not(:first)').remove();
+                $('#PoliceStationId').find('option:not(:first)').remove();
+                $.get('/account/divisions', { countryId: e.target.value }, function (response) {
+                    response.forEach(x => {
+                        $('#DivisionId').append(`<option value="${x.value}">${x.text}</option>`);
+                    });
+                    selectDefaultValue('#DivisionId');
+                });
+            });
+
+            $('#DivisionId').change(function (e) {
+                e.preventDefault();
+                $('#DistrictId').find('option:not(:first)').remove();
+                $('#PoliceStationId').find('option:not(:first)').remove();
+                $.get('/account/districts', { divisionId: e.target.value }, function (response) {
+                    response.forEach(x => {
+                        $('#DistrictId').append(`<option value="${x.value}">${x.text}</option>`);
+                    });
+                    selectDefaultValue('#DistrictId');
+                });
+            });
+
+            $('#DistrictId').change(function (e) {
+                e.preventDefault();
+                $('#PoliceStationId').find('option:not(:first)').remove();
+                $.get('/account/police-stations', { districtId: e.target.value }, function (response) {
+                    response.forEach(x => {
+                        $('#PoliceStationId').append(`<option value="${x.value}">${x.text}</option>`);
+                    });
+                    selectDefaultValue('#PoliceStationId');
+                });
+            });
+        });
+    </script> *@
+}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb2">
+            <li class="breadcrumb-item">
+                <a asp-action="Index" asp-controller="Home"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item">Register</li>
+        </ol>
+    </nav>
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="text-center mb-4 mt-4">
+                <h2>New Account</h2>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-12 mb-5">
+            <form asp-area="" asp-controller="Account" asp-action="Register" asp-route-returnUrl="@ViewBag.ReturnUrl" method="post" asp-antiforgery="true">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label asp-for="Email" class="form-label">
+                                Email Address
+                                <small>
+                                    <span asp-validation-for="Email"></span>
+                                </small>
+                            </label>
+                            <input asp-for="Email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                First Name
+                                <small>
+                                    <span asp-validation-for="FirstName"></span>
+                                </small>
+                            </label>
+                            <input asp-for="FirstName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Last Name
+                                <small>
+                                    <span asp-validation-for="LastName"></span>
+                                </small>
+                            </label>
+                            <input asp-for="LastName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Password
+                                <small>
+                                    <span asp-validation-for="Password"></span>
+                                </small>
+                            </label>
+                            <input asp-for="Password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Confirm Password
+                                <small>
+                                    <span asp-validation-for="ConfirmPassword"></span>
+                                </small>
+                            </label>
+                            <input asp-for="ConfirmPassword" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Phone Number
+                                <small>
+                                    <span asp-validation-for="PhoneNumber"></span>
+                                </small>
+                            </label>
+                            <input asp-for="PhoneNumber" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Company Name</label>
+                            <input asp-for="CompanyName" class="form-control">
+                        </div>
+                    </div>
+                  @*   <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label class="form-label">
+                                Country
+                                <small>
+                                    <span asp-validation-for="CountryId"></span>
+                                </small>
+                            </label>
+                            <select asp-for="CountryId" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">Select a country</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Division
+                                <small>
+                                    <span asp-validation-for="DivisionId"></span>
+                                </small>
+                            </label>
+                            <select asp-for="DivisionId" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">Select a division</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                District
+                                <small>
+                                    <span asp-validation-for="DistrictId"></span>
+                                </small>
+                            </label>
+                            <select asp-for="DistrictId" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">Select a district</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Police Station/Thana
+                                <small>
+                                    <span asp-validation-for="PoliceStationId"></span>
+                                </small>
+                            </label>
+                            <select asp-for="PoliceStationId" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">Select a police station</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Post Office
+                                <small>
+                                    <span asp-validation-for="PostOffice"></span>
+                                </small>
+                            </label>
+                            <input asp-for="PostOffice" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Zip/Postcode
+                                <small>
+                                    <span asp-validation-for="ZipCode"></span>
+                                </small>
+                            </label>
+                            <input type="number" asp-for="ZipCode" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">
+                                Address Line
+                                <small>
+                                    <span asp-validation-for="AddressLine"></span>
+                                </small>
+                            </label>
+                            <input asp-for="AddressLine" class="form-control">
+                        </div>
+                    </div> *@
+                    <div class="col-md-12">
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="col-md-12 col-12">
+                        <div class="form-group d-flex justify-content-center">
+                            <button type="submit" class="add-to-cart2 btn mt-31">Create Account</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

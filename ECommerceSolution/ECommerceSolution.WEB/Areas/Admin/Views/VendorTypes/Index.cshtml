@@ -1,0 +1,89 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.VendorTypeModels
+@model IEnumerable<VendorTypeModel>
+
+@{
+    ViewData["Title"] = "Vendor Types";
+}
+
+@section Scripts
+{
+    <script>
+        $('#vendorType-table').DataTable();
+    </script>
+}
+
+<!-- ============================================================== -->
+<!-- Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<div class="row page-titles">
+    <div class="col-md-6 align-self-center">
+        <h3>Vendor Type</h3>
+    </div>
+    <div class="col-md-6 text-right font-12">
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a> &gt; Index
+    </div>
+    <div class="">
+        <button class="right-side-toggle waves-effect waves-light bg-primary btn btn-circle btn-sm pull-right ml-10">
+            <i class="ti-settings text-white"></i>
+        </button>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Start Page Content -->
+<!-- ============================================================== -->
+<div class="card">
+    <div class="card-header bg-light clearfix">
+        <a asp-area="Admin" asp-controller="VendorTypes" asp-action="Create" class="btn btn-outline-primary float-right"><i class="fa fa-plus"></i> Add</a>
+    </div>
+    <div class="card-body">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table id="vendorType-table" class="display nowrap table table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Vendor Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        @if (Model.Count()>0)
+                        {
+                            <tbody>
+                                @{
+                                    int counter = 0;
+                                    foreach (var vendorType in @Model)
+                                    {
+                                        <tr>
+                                            <td>@(++counter)</td>
+                                            <td>@vendorType.TypeName</td>
+                                            <td>
+                                                <a asp-area="Admin" asp-controller="VendorTypes" asp-action="Edit" asp-route-id="@vendorType.Id" class="pencil-icon">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                                <a asp-area="Admin" asp-controller="VendorTypes" asp-action="Details" asp-route-id="@vendorType.Id" class="pencil-icon">
+                                                    <i class="fa fa-info"></i>
+                                                </a>
+                                                <a asp-area="Admin" asp-controller="VendorTypes" asp-action="Delete" asp-route-id="@vendorType.Id" class="delete-icon">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        }
+                        
+                    </table>
+                    <!-- ============================================================== -->
+                    <!-- End PAge Content -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- End Container fluid  -->
+                    <!-- ============================================================== -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+﻿
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <partial name="_LayoutMetaPartial" />
+    <title>@ViewData["Title"] -</title>
+    <script src="~/theme/vendor/home-banner/jquery.min.js"></script>
+    <!-- main css -->
+    <link rel="stylesheet" href="~/theme/css/home-1.css">
+    <link rel="stylesheet" href="~/theme/vendor/revolution/vendor/revslider/css/settings.css">
+    <link rel="stylesheet" href="~/theme/vendor/revolution/responsiveslides.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- main css -->
+    <style>
+        .nav-link::after {
+            content: none !important;
+        }
+    </style>
+    @await RenderSectionAsync("Styles", false)
+
+</head>
+<body>
+
+    @*   <partial name="_SubscribeModalPartial" model="@Model" /> *@
+    <partial name="_SubscribeModalPartial" />
+
+    @*  <partial name="_Navigation1Partial" model="@Model" /> *@
+    <partial name="_Navigation1Partial" />
+
+    @RenderBody()
+
+    @*  <partial name="_NewsletterAreaPartial" /> *@
+
+    @* <partial name="_FooterPartial" model="@Model" /> *@
+
+    <partial name="_FooterPartial" />
+
+    <script src="~/theme/js/ajax.js"></script>
+    <script src="~/theme/js/formValidation.js"></script>
+    <!--bootstrap-->
+    <script src="~/theme/vendor/bootstrap/js/popper.min.js"></script>
+    <script src="~/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--bootstrap-->
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- This is data table -->
+    <script src="~/theme/admin/assets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/dataTables.buttons.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.flash.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/jszip.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/pdfmake.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/vfs_fonts.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.html5.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.print.min.js"></script>
+    <!--select2 js-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <!-- select2 CDN-->
+    @await RenderSectionAsync("Scripts", false)
+
+
+    <p data-toggle="modal" class="no-margin" data-target="#myModal" id="model2"></p>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-dialog2">
+            <div class="modal-content text-center">
+                <div class="modal-body modal-body2">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h3 class="modal-title">
+                        <img src="~/theme/images/thankyou.png" class="img-fluid" alt="thank you">
+                    </h3>
+                    <h4 class="thanks">We will get back to you as soon as possible.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

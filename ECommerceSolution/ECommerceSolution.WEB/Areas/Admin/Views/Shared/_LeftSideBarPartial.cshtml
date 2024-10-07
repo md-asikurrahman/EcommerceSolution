@@ -1,0 +1,222 @@
+﻿
+@{
+    var x = "";
+}
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                @if (x == "")
+                {
+                    <li>
+
+                        <a class="waves-effect waves-dark" asp-area="Admin" asp-controller="Dashboard" asp-action="Index"
+                           as aria-expanded="false">
+                            <i class="fa fa-dashboard mr-10"></i> <span class="hide-menu">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Brand" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-bold"></i> <span class="hide-menu">Brands</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Brand"> <i class="ti-angle-right"></i> <span class="hide-menu">Brand</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="BrandModels"> <i class="ti-angle-right"></i> <span class="hide-menu">BrandModels</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Category" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-creative-commons"></i> <span class="hide-menu">Categories</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="CategoryTypes"> <i class="ti-angle-right"></i> <span class="hide-menu">Category Types</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Category"> <i class="ti-angle-right"></i> <span class="hide-menu">Category</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="ParentCategories" asp-controller="Category"> <i class="ti-angle-right"></i> <span class="hide-menu">Parent Category</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="FeaturedCategory"> <i class="ti-angle-right"></i> <span class="hide-menu">Featured Category</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Customer" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> <span class="hide-menu">Customers</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Customer"> <i class="ti-angle-right"></i> <span class="hide-menu">Customer</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="CustomerType"> <i class="ti-angle-right"></i> <span class="hide-menu">Customer Type</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Orders" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-cart-plus"></i> <span class="hide-menu">Orders</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Orders"> <i class="ti-angle-right"></i> <span class="hide-menu">Orders</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Transaction" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-cart-plus"></i> <span class="hide-menu">Transactions</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Transaction"> <i class="ti-angle-right"></i> <span class="hide-menu">Transactions</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Product" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-product-hunt mr-10"></i> <span class="hide-menu">Products</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Product"> <i class="ti-angle-right"></i> <span class="hide-menu">Products</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductCombination"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Combinations</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductCombinationDetails"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Combination Details</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="FeaturedProducts"> <i class="ti-angle-right"></i> <span class="hide-menu">Featured Products</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductStocks"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Stocks</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ImageGallery"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Image Gallery</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductReview"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Review</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Promotion" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-product-hunt mr-10"></i> <span class="hide-menu">Promotions</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Promotion"> <i class="ti-angle-right"></i> <span class="hide-menu">Promotions</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="ProductPromotion" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-product-hunt mr-10"></i> <span class="hide-menu">Product Promotion</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductPromotion"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Promotion</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="CustomSms" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-envelope mr-10"></i> <span class="hide-menu">Custom Sms</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="CustomSms"> <i class="ti-angle-right"></i> <span class="hide-menu">Custom Sms</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Purchases" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-shopping-bag"></i> <span class="hide-menu">Purchases</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Purchases"> <i class="ti-angle-right"></i> <span class="hide-menu">Purchases</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="PurchaseDetail"> <i class="ti-angle-right"></i> <span class="hide-menu">Purchase Details</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="PurchasePayments"> <i class="ti-angle-right"></i> <span class="hide-menu">Purchase Payments</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="PaymentTypes"> <i class="ti-angle-right"></i> <span class="hide-menu">PaymentType</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Variation" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-address-card"></i> <span class="hide-menu">Variation</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Variation"> <i class="ti-angle-right"></i> <span class="hide-menu">Variation</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="VariationOptions"> <i class="ti-angle-right"></i> <span class="hide-menu">Variation Options</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Vendors" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-user-circle"></i> <span class="hide-menu">Vendors</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Vendors"> <i class="ti-angle-right"></i> <span class="hide-menu">Vendors</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="VendorType"> <i class="ti-angle-right"></i> <span class="hide-menu">Vendor Type</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="PromoSlider" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-sliders"></i> <span class="hide-menu">PromoSliders</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="PromoSlider"> <i class="ti-angle-right"></i> <span class="hide-menu">PromoSlider</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="SliderDetails"> <i class="ti-angle-right"></i> <span class="hide-menu">Slider Details</span></a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="ProductVariations" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-address-card"></i> <span class="hide-menu">Product Variations</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductVariations"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Variations</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ProductVariationOptions"> <i class="ti-angle-right"></i> <span class="hide-menu">Product Variation Options</span></a></li>
+                        </ul>
+                    </li>
+                }
+                <li>
+                    @if (x == "")
+                    {
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="DeliveryCompanies" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-address-card"></i> <span class="hide-menu">Delivery Companies</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            @if (x == "")
+                            {
+                                <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="DeliveryCompanies"> <i class="ti-angle-right"></i> <span class="hide-menu">Delivery Company</span></a></li>
+                                <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="CompanyEmpolyee"> <i class="ti-angle-right"></i> <span class="hide-menu">Delivery Company Empolyees</span></a></li>
+                            }
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="AllEmployeeOfCompany" asp-controller="CompanyEmpolyee"> <i class="ti-angle-right"></i> <span class="hide-menu">Empolyees Of My Company</span></a></li>
+                        </ul>
+                    }
+
+                </li>
+                <li>
+                    @if (x == "")
+                    {
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="ShipmentCompanies" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-address-card"></i> <span class="hide-menu">All Shipments</span>
+                        </a>
+                    }
+                    @if (x == "")
+                    {
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="ShipmentCompanies"> <i class="ti-angle-right"></i> <span class="hide-menu">Shiments</span></a></li>
+
+                        </ul>
+                    }
+                    @if (x == "")
+                    {
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="AllShipmentByCompanies"> <i class="ti-angle-right"></i> <span class="hide-menu">Shiments Of My Company</span></a></li>
+                        </ul>
+                    }
+                    @if (x == "")
+                    {
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="AllShipmentOfEmployee" asp-controller="AllShipmentByCompanies"> <i class="ti-angle-right"></i> <span class="hide-menu">My Shiments</span></a></li>
+                        </ul>
+                    }
+                </li>
+                @if (x == "")
+                {
+                    <li>
+                        <a class="waves-effect waves-dark" asp-area="Admin" asp-controller="CompanyInfos" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-info-circle"></i> <span class="hide-menu">CompanyInfos</span>
+                        </a>
+                    </li>
+                }
+                @if (x == "")
+                {
+                    <li>
+                        <a class="has-arrow waves-effect waves-dark" asp-area="Admin" asp-controller="Country" asp-action="Index" aria-expanded="false">
+                            <i class="fa fa-info-circle"></i> <span class="hide-menu">Countries</span>
+                        </a>
+                        <ul aria-expanded="false" class="collapse list-group list-group-flush">
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Country"> <i class="ti-angle-right"></i> <span class="hide-menu">Countries</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="Division"> <i class="ti-angle-right"></i> <span class="hide-menu">Divisions</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="District"> <i class="ti-angle-right"></i> <span class="hide-menu">Districts</span></a></li>
+                            <li class="list-group-item p-0 border-0"><a class="waves-effect waves-dark" asp-action="Index" asp-controller="PoliceStation"> <i class="ti-angle-right"></i> <span class="hide-menu">PoliceStations</span></a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

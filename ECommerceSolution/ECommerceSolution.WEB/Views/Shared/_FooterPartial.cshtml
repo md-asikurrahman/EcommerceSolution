@@ -1,0 +1,112 @@
+﻿
+
+<!-- Footer -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 address wow fadeInLeft">
+            <p>
+                <img src="LogoLight" alt="CompanyName" title="" class="img-fluid"
+                     style="vertical-align: middle; border-style: none; max-height: 50px;">
+            </p>
+            <p>Address: Address</p>
+            <p>Phone: ContactNumber</p>
+            <p>Email: <a href="">Email</a></p>
+            <ul class="social-2">
+                <li>
+                    <a href="" title="facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" title="instagram +">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" title="twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="" title="Pinterest">
+                        <i class="fa fa-pinterest"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
+            <h3>Information</h3>
+            <ul>
+                <li>
+                    <a asp-action="AboutUs" asp-controller="Infos">About Us</a>
+                </li>
+                <li>
+                    <a asp-action="QuestionAndAnsware" asp-controller="Infos">Q&A</a>
+                </li>
+                <li>
+                    <a asp-action="ContactUs" asp-controller="Infos">Contact Us</a>
+                </li>
+                <li>
+                    <a asp-action="TermsAndConditions" asp-controller="Infos">Terms & Condition</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
+            <h3>My Account</h3>
+            <ul>
+                <li>
+                    <a asp-area="" asp-controller="Account" asp-action="Index">My Account</a>
+                </li>
+                <li>
+                    <a asp-action="Login" asp-controller="Account">Login</a>
+                </li>
+                <li>
+                    <a asp-action="Register" asp-controller="Account">Register</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-6 footer-link  wow fadeInLeft">
+            <h3>Quick Link</h3>
+            <ul>
+                <li>
+                    <a asp-area="" asp-action="Cart" asp-controller="Product">Cart</a>
+                </li>
+                <li>
+                    <a asp-area="" asp-action="WishList" asp-controller="Product">Wishlist</a>
+                </li>
+                <li>
+                    <a asp-action="ComingSoon" asp-controller="Infos">Coming Soon</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<footer class="py-4 bg-dark">
+    <div class="container copy-right">
+        <div class="row">
+            <div class="col-md-6 text-white"> Copyright © @DateTime.Now.Year <a href="">Simplex Solutions</a>- All Rights Reserved. </div>
+            <div class="col-md-6 payment">
+                <div class="pull-right">
+                    <a href="">
+                        <img src="~/theme/images/skrill.png" alt="" title="">
+                    </a>
+                    <a href="">
+                        <img src="~/theme/images/ob.png" alt="" title="">
+                    </a>
+                    <a href="">
+                        <img src="~/theme/images/paypal.png" alt="" title="">
+                    </a>
+                    <a href="">
+                        <img src="~/theme/images/am.png" alt="" title="">
+                    </a>
+                    <a href="">
+                        <img src="~/theme/images/mr.png" alt="" title="">
+                    </a>
+                    <a href="">
+                        <img src="~/theme/images/visa.png" alt="" title="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

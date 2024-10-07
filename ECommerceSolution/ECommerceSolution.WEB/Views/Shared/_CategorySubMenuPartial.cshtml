@@ -1,0 +1,24 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.CategoryModels
+@model CategoryModel
+
+<ul class="subsidebar-two-item bg-white shadow">
+
+    <li>
+        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-category="@Model.Id">
+            <img class="icon" style="width:18px" src="/Images/CategoryImage/@Model.ImageUrl" alt="@Model.CategoryName"> @Model.CategoryName
+        </a>
+
+        @if (Model.MenuChildCategories.Any())
+        {
+            <i class="fa fa-angle-right right-arrow"></i>
+
+            <ul class="subsidebar-two-item bg-white shadow">
+                @foreach (var child in Model.MenuChildCategories)
+                {
+                    @Html.Partial("_CategorySubMenuPartial", child)
+                }
+            </ul>
+        }
+    </li>
+
+</ul>

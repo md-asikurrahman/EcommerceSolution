@@ -1,0 +1,74 @@
+﻿@using ECommerceSolution.WEB.Areas.Admin.ViewModel.CategoryModels
+@model IEnumerable<CategoryModel>
+
+<div class="sidebar-hover">
+    <div class="sidebar-hober-item">
+        <span> Categories <i class="fa fa-angle-down down-arrow"></i></span>
+        <div class="sidebar shadow">
+            <ul>
+
+                @foreach (var categoryType in Model)
+                {
+
+                    <li class="subsidebar">
+                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-category="@categoryType.Id">
+                            <img class="icon" style="width:18px" src="/Images/CategoryImage/@categoryType.ImageUrl" alt="@categoryType.CategoryName"> @categoryType.CategoryName
+                        </a>
+
+                        @if (categoryType.MenuChildCategories.Any())
+                        {
+                            <i class="fa fa-angle-right right-arrow"></i>
+
+                            <ul class="subsidebar-item bg-white shadow">
+
+                                @foreach (var childOne in categoryType.MenuChildCategories)
+                                {
+                                    <li class="subsidebar-two">
+                                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-category="@childOne.Id">
+                                            <img class="icon" style="width:18px" src="/Images/CategoryImage/@childOne.ImageUrl" alt="@childOne.CategoryName"> @childOne.CategoryName
+                                        </a>
+
+                                        @if (childOne.MenuChildCategories.Any())
+                                        {
+                                            <i class="fa fa-angle-right right-arrow"></i>
+
+                                            <ul class="subsidebar-two-item bg-white shadow">
+                                                @foreach (var childTwo in childOne.MenuChildCategories)
+                                                {
+                                                    <li>
+                                                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-category="@childTwo.Id">
+                                                            <img class="icon" style="width:18px" src="/Images/CategoryImage/@childTwo.ImageUrl" alt="@childTwo.CategoryName"> @childTwo.CategoryName
+                                                        </a>
+
+                                                        @if (childTwo.MenuChildCategories.Any())
+                                                        {
+                                                            <i class="fa fa-angle-right right-arrow"></i>
+
+                                                            <ul class="subsidebar-two-item bg-white shadow">
+                                                                @foreach (var childThree in childTwo.MenuChildCategories)
+                                                                {
+                                                                    <li>
+                                                                        <a asp-area="" asp-controller="Product" asp-action="Index" asp-route-category="@childThree.Id">
+                                                                            <img class="icon" style="width:18px" src="/Images/CategoryImage/@childThree.ImageUrl" alt="@childThree.CategoryName"> @childThree.CategoryName
+                                                                        </a>
+
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </li>
+
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>

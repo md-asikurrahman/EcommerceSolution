@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="_LayoutMetaPartial" />
+    <title>@ViewData["Title"] -</title>
+    <link href="~/theme/admin/assets/vendors/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <!-- This page CSS -->
+    <!-- Editable CSS -->
+    <link type="text/css" rel="stylesheet" href="~/theme/admin/assets/vendors/jsgrid/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="~/theme/admin/assets/vendors/jsgrid/jsgrid-theme.min.css" />
+    <!-- chartist CSS -->
+    <link href="~/theme/admin/assets/vendors/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="~/theme/admin/assets/vendors/c3-master/c3.min.css" rel="stylesheet">
+    <!-- flot css -->
+    <link href="~/theme/admin/main/css/pages/float-chart.css" rel="stylesheet">
+    <!--Toaster Popup message CSS -->
+    <link href="~/theme/admin/assets/vendors/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/theme/admin/main/css/master-stylesheet.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="~/theme/admin/main/css/colors/default.css" id="theme" rel="stylesheet">
+    <!-- File drag input -->
+    <link rel="stylesheet" href="~/theme/admin/assets/vendors/dropify/dist/css/dropify.min.css">
+    <!-- Tag input -->
+    <link href="~/theme/admin/assets/vendors/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="~/theme/admin/assets/vendors/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
+
+    <!-- select2 CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", false)
+</head>
+<body class="fix-header fix-sidebar card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <partial name="_PreLoaderPartial" />
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <partial name="_TopBarHeaderPartial" />
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <partial name="_LeftSideBarPartial" />
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                @RenderBody()
+                @Html.AntiForgeryToken()
+                <partial name="_RightSideBarPartial" />
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <partial name="_FooterPartial" />
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- End Page wrapper  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Wrapper -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="~/theme/admin/assets/vendors/jquery/jquery.min.js"></script>
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="~/theme/admin/assets/vendors/bootstrap/js/popper.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Product Slider -->
+    <script src="~/theme/admin/assets/vendors/product-slider/product-slider.js"></script>
+    <script src="~/theme/admin/assets/vendors/product-slider/product-slider.init.js"></script>
+    <!-- File drag input -->
+    <script src="~/theme/admin/assets/vendors/dropify/dist/js/dropify.min.js"></script>
+    <!-- Tag input -->
+    <script src="~/theme/admin/assets/vendors/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script src="~/theme/admin/main/js/add-edit.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/theme/admin/assets/vendors/ps/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="~/theme/admin/main/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/theme/admin/main/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="~/theme/admin/assets/vendors/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/switchery/dist/switchery.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/theme/admin/main/js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="~/theme/admin/assets/vendors/styleswitcher/jQuery.style.switcher.js"></script>
+    <!-- This is data table -->
+    <script src="~/theme/admin/assets/vendors/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables/media/js/jquery.dataTables.js"></script>
+
+    <!-- start - This is for export functionality only -->
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/dataTables.buttons.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.flash.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/jszip.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/pdfmake.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/pdfmake/vfs_fonts.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.html5.min.js"></script>
+    <script src="~/theme/admin/assets/vendors/datatables-2/buttons/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+    <script src="~/theme/admin/main/js/support-tickets.js"></script>
+    <!--jquery knob -->
+    <script src="~/theme/admin/assets/vendors/knob/jquery.knob.js"></script>
+    <script src="~/theme/admin/main/js/knob-init.js"></script>
+    <!--select2 js-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!--Morris JavaScript -->
+    <script src="~/theme/admin/assets/vendors/raphael/raphael-min.js"></script>
+    <script src="~/theme/admin/assets/vendors/morrisjs/morris.js"></script>
+    <!-- maps -->
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <!-- maps -->
+    <!-- Editable -->
+    <script src="~/theme/admin/assets/vendors/jsgrid/db.js"></script>
+    <script src="~/theme/admin/assets/vendors/jsgrid/dist/jsgrid.min.js"></script>
+    <script src="~/theme/admin/main/js/jsgrid-init.js"></script>
+    <script src="~/theme/admin/assets/vendors/jsgrid/jsgrid-data.js"></script>
+    <!-- Resources -->
+    <script src="~/theme/admin/assets/vendors/amcharts/core2.js"></script>
+    <script src="~/theme/admin/assets/vendors/amcharts/maps2.js"></script>
+    <script src="~/theme/admin/assets/vendors/amcharts/worldLow.js"></script>
+    <script src="~/theme/admin/assets/vendors/amcharts/animated2.js"></script>
+    <!--Sparkline JavaScript -->
+    <script src="~/theme/admin/main/js/map-ecommerce.js"></script>
+    <script src="~/theme/admin/main/js/ecommerce-dashboard.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(document).ajaxSend(function (event, jqxhr, settings) {
+            if (settings.type.toUpperCase() != "POST") return;
+            jqxhr.setRequestHeader('RequestVerificationToken', $('input[name="__RequestVerificationToken"]').val());
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", false)
+    
+</body>
+</html>
